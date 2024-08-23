@@ -1,0 +1,146 @@
+.background {
+  background-image: url('/assets/etudiant.png');
+  background-size: cover;
+  background-position: center;
+  filter: blur(8px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.overlay {
+  position: relative;
+  z-index: 1;
+}
+
+.container {
+  margin-top: 100px;
+  max-width: 700px;
+  margin: 20px auto;
+  padding-top: 100px;
+}
+
+.paper {
+  padding: 50px 20px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.header {
+  text-align: center;
+  color: blue;
+  text-decoration: solid;
+  font-weight: bold;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group input {
+  width: 95%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.btn {
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  border: none;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: white;
+  margin-left: 5px;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268;
+}
+
+.btn-success {
+  background-color: #28a745;
+  color: white;
+  margin-left: 5px;
+}
+
+.btn-success:hover {
+  background-color: #218838;
+}
+
+.error-message {
+  color: #dc3545;
+  font-weight: bold;
+  margin-top: 16px;
+  text-align: center;
+}
+
+.student-card {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.student-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.button-group {
+  display: flex;
+  margin-top: 10px; /* Espace au-dessus des boutons */
+}
+
+.student-info {
+  flex-grow: 1;
+  padding-right: 20px;
+}
+
+.qr-code {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.no-results {
+  text-align: center;
+  color: black;
+}
+
+.dialog {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  margin: 20px auto;
+  text-align: center;
+}
+
+.dialog-actions {
+  margin-top: 20px;
+}

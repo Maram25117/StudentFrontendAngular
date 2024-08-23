@@ -1,0 +1,78 @@
+<form (ngSubmit)="handleSubmit()" #studentForm="ngForm" class="student-form">
+  <div class="form-group">
+    <label for="firstName">Prénom</label>
+    <input type="text" id="firstName" [(ngModel)]="firstName" name="firstName" required />
+  </div>
+
+  <div class="form-group">
+    <label for="lastName">Nom</label>
+    <input type="text" id="lastName" [(ngModel)]="lastName" name="lastName" required />
+  </div>
+
+  <div class="form-group">
+    <label for="address">Adresse</label>
+    <input type="text" id="address" [(ngModel)]="address" name="address" required />
+  </div>
+
+  <div class="form-group">
+    <label for="phone">Téléphone</label>
+    <input type="text" id="phone" [(ngModel)]="phone" name="phone" required />
+  </div>
+
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" id="email" [(ngModel)]="email" name="email" required />
+  </div>
+
+  <div class="form-group">
+    <label for="cin">CIN</label>
+    <input type="text" id="cin" [(ngModel)]="cin" name="cin" required />
+  </div>
+
+  <div class="form-group">
+    <label for="classe">Classe</label>
+    <input type="text" id="classe" [(ngModel)]="classe" name="classe" required />
+  </div>
+
+  <div class="form-buttons">
+    <button type="submit" class="btn-primary">Ajouter</button>
+    <button type="button" class="btn-secondary" (click)="handleShowList()">
+      {{ showList ? 'Cacher Liste' : 'Afficher Liste' }}
+    </button>
+  </div>
+
+  <div class="error-message" *ngIf="error">
+    {{ error }}
+  </div>
+</form>
+
+<!-- Liste des étudiants -->
+<div class="student-list" *ngIf="showList">
+ <ul>
+    <li *ngFor="let student of students">
+      <!--Prénom: {{ student.firstName }}<br />
+      Nom: {{ student.lastName }}<br />
+      Adresse: {{ student.address }}<br />
+      Téléphone: {{ student.phone }}<br />
+      Email: {{ student.email }}<br />
+      CIN: {{ student.cin }}<br />
+      Classe: {{ student.classe }}<br />-->
+      <div>
+        <div><strong>Prénom:</strong> {{student.firstName}}</div>
+        <div><strong>Nom:</strong> {{student.lastName}}</div>
+        <div><strong>Adresse:</strong> {{student.address}}</div>
+        <div><strong>Classe:</strong> {{student.classe}}</div>
+        <div><strong>Numéro de téléphone:</strong> {{student.phone}}</div>
+        <div><strong>Email:</strong> {{student.email}}</div>
+        <div><strong>CIN:</strong> {{student.cin}}</div>
+      </div>
+      <div class="student-buttons">
+        <button class="btn-primary" (click)="handleEdit(student)">Modifier</button>
+        <button class="btn-danger" (click)="handleDelete(student)">Supprimer</button>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<!-- Bouton pour revenir en haut de la page -->
+<button class="scroll-to-top" (click)="scrollToTop()">↑</button>

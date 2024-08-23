@@ -1,0 +1,42 @@
+<div class="background"></div>
+<div class="overlay"></div>
+<app-appbar></app-appbar>
+
+<div class="container">
+  <div class="paper">
+    <div *ngIf="previewUrl; else uploadSection">
+      <button class="btn btn-primary" (click)="handleBack()">Retour à la Liste</button>
+      <iframe [src]="previewUrl | safeUrl" title="PDF Preview" style="width: 100%; height: 600px; border: none;"></iframe>
+    </div>
+    <ng-template #uploadSection>
+      <h2 style="text-align: center; color: blue;">Importer un Document PDF</h2>
+      <button class="btn btn-primary" (click)="handleImportClick()" style="text-align: center;">Importer un Document PDF</button>
+      <input
+        #fileInput
+        type="file"
+        accept="application/pdf"
+        (change)="handleFileChange($event)"
+        style="display: none;"
+        multiple
+      />
+      <div *ngIf="pdfFiles.length > 0">
+        <div class="paper">
+          <ul>
+            <li *ngFor="let file of pdfFiles" style="margin-bottom: 10px; display: flex; align-items: center;">
+              <span style="flex-grow: 1;">{{ file.name }}</span>
+              <button class="btn btn-secondary" (click)="handlePreview(file.id)">
+                <mat-icon>ouvrir</mat-icon>
+              </button>
+              <button class="btn btn-primary" (click)="handleDownload(file.id, file.name)">
+                <mat-icon>télécharger</mat-icon>
+              </button>
+              <button class="btn btn-danger" (click)="handleDelete(file.id)">
+                <mat-icon>supprimer</mat-icon>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </ng-template>
+  </div>
+</div>

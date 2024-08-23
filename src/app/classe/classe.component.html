@@ -1,0 +1,44 @@
+<div class="background"></div>
+<div class="overlay"></div>
+<app-appbar></app-appbar>
+<div class="container">
+  <div class="paper">
+    <h1>Liste des étudiants par classe</h1>
+    <div class="form-group">
+      <input type="text" placeholder="Classe de l'étudiant" [(ngModel)]="classe" />
+    </div>
+    <div class="form-buttons">
+      <button (click)="handleSearch()" class="btn-primary">Chercher</button>
+      <button (click)="handleGeneratePDF()" class="btn-secondary">Télécharger PDF</button>
+    </div>
+    <div *ngIf="error" class="error-message">{{ error }}</div>
+  </div>
+
+  <div class="paper">
+    <h2>Résultats de la recherche</h2>
+    <div *ngIf="students.length > 0">
+      <div *ngFor="let student of students" class="student-card">
+        <div><strong>Prénom:</strong> {{ student.firstName }}</div>
+        <div><strong>Nom:</strong> {{ student.lastName }}</div>
+        <div><strong>Adresse:</strong> {{ student.address }}</div>
+        <div><strong>Classe:</strong> {{ student.classe }}</div>
+        <div><strong>CIN:</strong> {{ student.cin }}</div>
+        <div><strong>Email:</strong> {{ student.email }}</div>
+        <div><strong>Numéro de téléphone:</strong> {{ student.phone }}</div>
+      </div>
+    </div>
+    <p *ngIf="students.length === 0">Aucun étudiant trouvé.</p>
+  </div>
+
+  <!-- Dialog de confirmation pour le PDF -->
+  <div *ngIf="confirmationOpen" class="dialog">
+    <div class="dialog-content">
+      <h3>Confirmer la génération du PDF</h3>
+      <p>Êtes-vous sûr de vouloir générer le PDF pour la classe {{ classe }} ?</p>
+      <div class="dialog-actions">
+        <button (click)="handleConfirmationClose()" class="btn-primary">Annuler</button>
+        <button (click)="handlePDFConfirm()" class="btn-secondary">Confirmer</button>
+      </div>
+    </div>
+  </div>
+</div>

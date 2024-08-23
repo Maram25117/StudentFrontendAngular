@@ -1,0 +1,17 @@
+<div class="appbar-container">
+  <div class="appbar">
+    <img src="assets/etudiant.png" alt="Logo" class="logo" />
+    <div class="title">Gestion des étudiants</div>
+    <div class="spacer"></div>
+    <nav>
+      <a [routerLink]="'/home'" class="link">Ajout et Liste</a>
+      <a [routerLink]="'/recherche'" class="link">Recherche</a>
+      <a [routerLink]="'/classe'" class="link">Classe</a>
+      <a [routerLink]="'/document'" class="link">Document</a>
+      <button class="login-logout-button" (click)="handleLoginLogout()">
+        {{ isLoggedIn ? 'Déconnexion' : 'Connexion' }}
+      </button>
+    </nav>
+  </div>
+</div>
+

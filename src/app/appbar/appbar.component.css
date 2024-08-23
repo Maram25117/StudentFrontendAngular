@@ -1,0 +1,58 @@
+.appbar-container {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    position: fixed; /* Fixe le Appbar en haut */
+  top: 0; /* Positionne en haut */
+  left: 0;
+  z-index: 1000; /* Assure que le Appbar est au-dessus du contenu */
+  }
+  
+  .appbar {
+    background-color: #1976d2; /* Couleur primaire */
+    display: flex;
+    align-items: center;
+    padding: 8px 16px; /* Padding interne de l'AppBar */
+    border: 4px;
+  }
+  
+  .logo {
+    height: 40px;
+    margin-right: 16px;
+  }
+  
+  .title {
+    font-weight: bold;
+    color: white;
+    flex-grow: 1;
+    text-align: left;
+  }
+  
+  .spacer {
+    flex-grow: 1;
+  }
+  
+  .link {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    margin-left: 16px;
+  }
+  
+  .login-logout-button {
+    background-color: white;
+    color: #1976d2;
+    border: 1px solid #1976d2;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 16px;
+    font-weight: bold;
+  }
+  
+  .login-logout-button:hover {
+    background-color: #1976d2;
+    color: white;
+  }
+  

@@ -1,0 +1,74 @@
+<div class="background"></div>
+<div class="overlay"></div>
+<app-appbar></app-appbar>
+
+<div class="container">
+  <div class="paper">
+    <h1 class="header">Recherche d'Étudiants</h1>
+    <div class="form-group">
+      <input type="text" [(ngModel)]="firstName" placeholder="Prénom de l'étudiant" />
+    </div>
+    <div class="form-group">
+      <input type="text" [(ngModel)]="lastName" placeholder="Nom de l'étudiant" />
+    </div>
+    <button class="btn btn-primary" (click)="handleSearch()">Chercher</button>
+  </div>
+
+  <div class="paper">
+    <h2 class="header">Résultats de la recherche</h2>
+    <div *ngIf="students.length > 0">
+      <div *ngFor="let student of students" class="student-card">
+        <div class="student-details">
+          <!-- Section des informations de l'étudiant -->
+          <div class="student-info">
+            <div><strong>Prénom:</strong> {{student.firstName}}</div>
+            <div><strong>Nom:</strong> {{student.lastName}}</div>
+            <div><strong>Adresse:</strong> {{student.address}}</div>
+            <div><strong>Classe:</strong> {{student.classe}}</div>
+            <div><strong>Numéro de téléphone:</strong> {{student.phone}}</div>
+            <div><strong>Email:</strong> {{student.email}}</div>
+            <div><strong>CIN:</strong> {{student.cin}}</div>
+          </div>
+          <!-- Section du QR code -->
+          <div class="qr-code">
+            <qrcode [qrdata]="formatVCard(student)"></qrcode>
+          </div>
+        </div>
+        <!-- Section des boutons -->
+        <div class="button-group">
+          <button class="btn btn-primary" (click)="handleEdit(student)">Modifier</button>
+          <button class="btn btn-secondary" (click)="setDeleteStudent(student)">Supprimer</button>
+          <button class="btn btn-success" (click)="handleSendEmail(student)">Envoyer Email</button>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="students.length === 0" class="no-results">Aucun étudiant trouvé.</div>
+  </div>
+</div>
+
+<!-- Dialog pour modifier un étudiant -->
+<div *ngIf="editStudent" class="dialog">
+  <h2>Modifier l'étudiant</h2>
+  <input type="text" [(ngModel)]="editStudent.firstName" placeholder="Prénom" />
+  <input type="text" [(ngModel)]="editStudent.lastName" placeholder="Nom" />
+  <input type="text" [(ngModel)]="editStudent.address" placeholder="Adresse" />
+  <input type="text" [(ngModel)]="editStudent.phone" placeholder="Numéro de téléphone" />
+  <input type="text" [(ngModel)]="editStudent.email" placeholder="Email" />
+  <input type="text" [(ngModel)]="editStudent.classe" placeholder="Classe" />
+  <input type="text" [(ngModel)]="editStudent.cin" placeholder="CIN" />
+  <div *ngIf="error" class="error-message">{{error}}</div>
+  <div class="dialog-actions">
+    <button class="btn btn-primary" (click)="editStudent = null">Annuler</button>
+    <button class="btn btn-primary" (click)="handleUpdate()">Mettre à jour</button>
+  </div>
+</div>
+
+<!-- Dialog pour confirmer la suppression -->
+<div *ngIf="deleteStudent" class="dialog">
+  <h2>Confirmer la suppression</h2>
+  <p>Êtes-vous sûr de vouloir supprimer l'étudiant {{deleteStudent?.firstName}} {{deleteStudent?.lastName}} ?</p>
+  <div class="dialog-actions">
+    <button class="btn btn-primary" (click)="deleteStudent = null">Annuler</button>
+    <button class="btn btn-secondary" (click)="confirmDelete()">Supprimer</button>
+  </div>
+</div>

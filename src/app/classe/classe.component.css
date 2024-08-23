@@ -1,0 +1,125 @@
+.background {
+    background-image: url('/assets/etudiant.png');
+    background-size: cover;
+    background-position: center;
+    filter: blur(8px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+  
+  .overlay {
+    position: relative;
+    z-index: 1;
+  }
+  
+  .container {
+    margin-top: 120px; /* Ajustez cette valeur selon l'espace que vous souhaitez */
+    max-width: 700px;
+    margin: 30px auto;
+    margin-bottom: 400px;
+    padding-top: 100px; /* pour quelle soit n'est pas coller au navbar*/
+  }
+  
+  .paper {
+    padding: 50px 20px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+  
+  h1, h2 {
+    text-align: center;
+    color: blue;
+    text-decoration: solid;
+    font-weight: bold;
+  }
+
+  p{
+    text-align: center;
+    color: black;
+    text-decoration: double;
+  }
+  
+  .form-group {
+    margin-bottom: 16px;
+  }
+  
+  .form-group input {
+    width: 95%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .form-buttons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+  }
+  
+  .btn-secondary {
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .btn-secondary:hover {
+    background-color: #5a6268;
+  }
+  
+  .error-message {
+    color: #dc3545;
+    font-weight: bold;
+    margin-top: 16px;
+    text-align: center;
+  }
+  
+  .student-card {
+    padding: 15px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+  }
+  
+  .dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .dialog-content {
+    text-align: center;
+  }
+  
+  .dialog-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
