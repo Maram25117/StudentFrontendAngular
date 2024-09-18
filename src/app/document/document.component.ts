@@ -32,29 +32,6 @@ export class DocumentComponent implements OnInit {
     );
   }
 
-  /*handleFileChange(event: Event): void {
-    const input = event.target as HTMLInputElement;
-    const files = input.files;
-    if (files) {
-      const formData = new FormData();
-      Array.from(files).forEach((file: File) => {
-        formData.append('files', file);
-      });
-
-      this.http.post(this.apiUrl + '/upload', formData, {
-        headers: { 'Content-Type': 'multipart/form-data' }
-      }).subscribe(
-        () => {
-          console.log('Files uploaded successfully');
-          this.fetchFiles(); // Refresh file list after upload
-        },
-        (error) => {
-          console.error('Error uploading files:', error);
-          alert('Erreur lors du téléversement des fichiers. Veuillez vérifier les détails.');
-        }
-      );
-    }
-  }*/
     handleFileChange(event: Event): void {
       const input = event.target as HTMLInputElement;
       const files = input.files;
@@ -78,26 +55,6 @@ export class DocumentComponent implements OnInit {
       }
   }
   
-  
-  
-
- /* handleDownload(id: number, name: string): void {
-    this.http.get(`${this.apiUrl}/${id}`, { responseType: 'blob' }).subscribe(
-      (response: Blob) => {
-        const url = window.URL.createObjectURL(new Blob([response], { type: 'application/pdf' }));
-        const link = document.createElement('a');
-        link.href = url;
-        link.setAttribute('download', name);
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link); // Clean up link element
-      },
-      (error) => {
-        console.error('Error downloading file:', error);
-        alert('Erreur lors du téléchargement du fichier. Veuillez vérifier les détails.');
-      }
-    );
-  }*/
     handleDownload(id: number, name: string): void {
       this.http.get(`${this.apiUrl}/${id}`, { responseType: 'blob' }).subscribe(
           (response: Blob) => {
@@ -117,20 +74,6 @@ export class DocumentComponent implements OnInit {
       );
   }
   
-
-  /*handlePreview(id: number): void {
-    this.http.get(`${this.apiUrl}/${id}`, { responseType: 'blob' }).subscribe(
-      (response: Blob) => {
-        const url = window.URL.createObjectURL(new Blob([response], { type: 'application/pdf' }));
-        this.previewUrl = url;
-        this.viewingFile = id;
-      },
-      (error) => {
-        console.error('Error previewing file:', error);
-        alert('Erreur lors de l\'aperçu du fichier. Veuillez vérifier les détails.');
-      }
-    );
-  }*/
     handlePreview(id: number): void {
       this.http.get(`${this.apiUrl}/${id}`, { responseType: 'blob' }).subscribe(
         (response: Blob) => {
@@ -143,9 +86,7 @@ export class DocumentComponent implements OnInit {
         }
       );
     }
-    
-
-  handleDelete(id: number): void {
+     handleDelete(id: number): void {
     const confirmDelete = window.confirm('Voulez-vous supprimer ce document ?');
     if (confirmDelete) {
       this.http.delete(`${this.apiUrl}/${id}`).subscribe(

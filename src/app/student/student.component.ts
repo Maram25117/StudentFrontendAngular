@@ -31,7 +31,7 @@ export class StudentComponent implements OnInit {
   editStudent: Student | null = null;
   isEditMode = false; // Flag to determine if we are in edit mode
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {} //pour faire les api ( get , delete , update , post)
 
   ngOnInit(): void {}
 

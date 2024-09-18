@@ -7,7 +7,7 @@
     <div *ngIf="previewUrl; else uploadSection">
       <button class="btn btn-primary" (click)="handleBack()">Retour à la Liste</button>
       <iframe [src]="previewUrl | safeUrl" title="PDF Preview" style="width: 100%; height: 600px; border: none;"></iframe>
-    </div>
+    </div><!--ici on a utiliser le pipe qu'on a crée-->
     <ng-template #uploadSection>
       <h2 style="text-align: center; color: blue;">Importer un Document PDF</h2>
       <button class="btn btn-primary" (click)="handleImportClick()" style="text-align: center;">Importer un Document PDF</button>

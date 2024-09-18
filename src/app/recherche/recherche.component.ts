@@ -24,7 +24,7 @@ export class RechercheComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  handleSearch(): void {
+  handleSearch(): void { 
     if (this.firstName && this.lastName) {
       this.http.get<any[]>(`http://localhost:8082/student/name/${this.firstName}/${this.lastName}`)
         .subscribe(response => {
@@ -34,6 +34,8 @@ export class RechercheComponent implements OnInit {
         });
     }
   }
+  /*Le préfixe handle signifie "gérer" ou "traiter". Lorsqu'il est utilisé dans le nom d'une fonction ou d'une méthode, 
+  il indique que cette fonction est conçue pour gérer une action ou un événement spécifique.    */
 
   handleEdit(student: any): void {
     this.editStudent = { ...student };

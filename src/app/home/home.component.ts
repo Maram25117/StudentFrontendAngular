@@ -12,4 +12,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  /*ngOnInit() est appelé une fois, après que le composant soit initialisé,
+   c'est-à-dire après que le constructeur du composant ait été exécuté et que toutes les propriétés d'entrée aient été passées. */
+
 }

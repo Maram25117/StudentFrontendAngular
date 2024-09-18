@@ -36,7 +36,7 @@ import { SignupComponent } from './signup/signup.component'; // Ajout de cette l
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
+    HttpClientModule, //il faut l'importer pour l'utilisation des http des api
     FormsModule,
     BrowserAnimationsModule, // Ajoute BrowserAnimationsModule
     MatToolbarModule, // Importer MatToolbarModule

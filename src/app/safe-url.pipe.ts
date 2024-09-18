@@ -1,7 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'safeUrl'
+  name: 'safeUrl' //nom du pipe crée
 })
 export class SafeUrlPipe implements PipeTransform {
 
@@ -10,3 +10,5 @@ export class SafeUrlPipe implements PipeTransform {
   }
 
 }
+
+//il faut le déclarer dans app.module.ts dans la partie @NgModel
